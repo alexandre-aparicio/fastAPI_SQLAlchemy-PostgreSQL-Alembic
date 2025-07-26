@@ -95,7 +95,8 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
         │   └── seed.py
         ├── docker-compose.yml
         └── ...
-    - 
+
+    - Crear la función para que inserte los campos en la base de datos
 
         ```bash
         from .database import SessionLocal
@@ -119,5 +120,9 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
         if __name__ == "__main__":
             seed()
 
+    - Carga de datos iniciales (Seed)
+
+        ```
+        python -m app.seed
 
 
