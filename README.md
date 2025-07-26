@@ -49,10 +49,10 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
 - Acceder a la base de datos para comprobar que de ha ejecutado la migración users
 
     ```bash
-    docker exec -it fastapi_sqlalchemy-postgresql-alembic-app-1-app-1 bash
+    docker exec -it fastapi_sqlalchemy-postgresql-alembic-app-1-db-1 psql -U postgres -d fastapi_db
 
 - Crear una nueva migración 
-    1. Editamos el fichero app/models.py y añadimos la nueva clase
+    1. Editamos el fichero app/models.py y añadimos el nuevo modelo
 
         ```bash
         from sqlalchemy import Column, Integer, String, Text, Boolean, DateTime, ForeignKey
@@ -69,3 +69,14 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
             created_at = Column(DateTime, default=datetime.utcnow)
             is_published = Column(Boolean, default=False)
             slug = Column(String(100), unique=True)
+
+    2. Generar la migración automática (Dentro del contenedor)  
+
+        ```bash
+
+        alembic revision --autogenerate -m "create blogs table"
+
+    3. Aplicar la migración
+
+        ```bash
+        alembic upgrade head
