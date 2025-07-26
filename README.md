@@ -82,4 +82,42 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
         alembic upgrade head
 
 - Insertar datos en las tablas        
+    A diferencia de Laravel, que ofrece métodos directos y expresivos para insertar múltiples registros en bloque, SQLAlchemy no cuenta con una función específica de "bulk insert" tan simplificada en su ORM de alto nivel. Sin embargo, es posible insertar múltiples registros utilizando una lista de instancias de clase (modelo) y luego persistirlos mediante una única operación con la sesión.
+
+    - Crear un fichero llamado seed.py
+
+        ``` bash
+            /app
+        ├── app/
+        │   ├── __init__.py
+        │   ├── models.py
+        │   ├── database.py
+        │   └── seed.py
+        ├── docker-compose.yml
+        └── ...
+    - 
+
+        ```bash
+        from .database import SessionLocal
+        from .models import User
+
+        def seed():
+            db = SessionLocal()
+
+            users = [
+                {"name": "Juan", "email": "juan@example.com"},
+                {"name": "Ana", "email": "ana@example.com"},
+            ]
+
+            for u in users:
+                user = User(**u)
+                db.add(user)
+
+            db.commit()
+            db.close()
+
+        if __name__ == "__main__":
+            seed()
+
+
 
