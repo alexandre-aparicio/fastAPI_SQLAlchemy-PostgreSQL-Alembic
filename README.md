@@ -46,7 +46,7 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
     ```bash
     docker exec -it fastapi_sqlalchemy-postgresql-alembic-app-1-app-1 bash
     
--Acceder a la base de datos para comprobar que de ha ejecutado la migración users
+- Acceder a la base de datos para comprobar que de ha ejecutado la migración users
 
     ```bash
     docker exec -it fastapi_sqlalchemy-postgresql-alembic-app-1-app-1 bash
