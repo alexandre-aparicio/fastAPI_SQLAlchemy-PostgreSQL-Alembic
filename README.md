@@ -80,3 +80,6 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
 
         ```bash
         alembic upgrade head
+
+- Insertar datos en las tablas        
+
