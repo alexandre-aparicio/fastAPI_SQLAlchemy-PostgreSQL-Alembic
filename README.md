@@ -50,3 +50,22 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
 
     ```bash
     docker exec -it fastapi_sqlalchemy-postgresql-alembic-app-1-app-1 bash
+
+- Crear una nueva migración 
+    1. Editamos el fichero app/models.py y añadimos la nueva clase
+
+        ```bash
+        from sqlalchemy import Column, Integer, String, Text, Boolean, DateTime, ForeignKey
+        from datetime import datetime
+        from .database import Base
+
+        class Blog(Base):
+            __tablename__ = "blogs"
+            
+            id = Column(Integer, primary_key=True, index=True)
+            title = Column(String(100), nullable=False)
+            content = Column(Text, nullable=False)
+            author_id = Column(Integer, ForeignKey("users.id"))
+            created_at = Column(DateTime, default=datetime.utcnow)
+            is_published = Column(Boolean, default=False)
+            slug = Column(String(100), unique=True)
