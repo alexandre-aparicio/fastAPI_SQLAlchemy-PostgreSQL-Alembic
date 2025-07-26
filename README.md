@@ -29,3 +29,15 @@ Este proyecto tiene como objetivo servir como base para desarrollos más complej
 - **Disponer de un punto de partida reutilizable** para futuros desarrollos con autenticación, endpoints personalizados y más.
 
 ### Instalación:
+
+1. **Clona el repositorio** en el directorio de tu elección:
+
+   ```bash
+   git clone https://github.com/alexandre-aparicio/fastAPI_SQLAlchemy-PostgreSQL-Alembic.git
+   cd fastAPI_SQLAlchemy-PostgreSQL-Alembic
+
+2. **Construye y levanta los contenedores** utilizando Docker Compose   
+- Construir el contenedor con las directrices del fichero docker-compose.yml y Dockerfile
+
+    ```bash
+    docker compose up --build
