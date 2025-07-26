@@ -11,3 +11,21 @@ Este proyecto es una plantilla básica para crear una API RESTful utilizando **F
 - [SQLAlchemy](https://www.sqlalchemy.org/)
 - [Alembic](https://alembic.sqlalchemy.org/)
 - [Docker & Docker Compose](https://www.docker.com/)
+
+## ¿Qué pretende este mini proyecto?
+
+Este proyecto tiene como objetivo servir como base para desarrollos más complejos en FastAPI con una base de datos relacional. Además, pretende profundizar en el sistema de migraciones mediante Alembic, permitiendo crear y modificar tablas en la base de datos de forma fácil, controlada e intuitiva.
+
+### Objetivos principales:
+
+- **Sentar las bases para una instalación desde Docker** de una API construida con FastAPI, conectada a una base de datos PostgreSQL.
+- **Probar el correcto funcionamiento del entorno**: desde la construcción de imágenes y ejecución de contenedores hasta la conexión y persistencia de datos en la base de datos.
+- **Visualizar y entender las configuraciones necesarias** en los distintos ficheros clave:
+  - `docker-compose.yml`: definición y coordinación de los servicios (API y base de datos).
+  - `init.py`: creación de tablas e inserción de datos iniciales mediante SQLAlchemy.
+  - `requirements.txt`: declaración de dependencias del entorno Python.
+  - `alembic.ini`: configuración del sistema de migraciones Alembic.
+  - `env.py (de Alembic)`: punto central para definir el contexto de migraciones con SQLAlchemy.
+- **Disponer de un punto de partida reutilizable** para futuros desarrollos con autenticación, endpoints personalizados y más.
+
+### Instalación:
